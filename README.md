@@ -202,6 +202,7 @@ activate FightButton
 %% Al activarse el botón Fight, se genera el Minijuego y se activa éste y después la pelea con el enemigo
 FightButton->>BattleMinigame: generateMinigame()
 activate BattleMinigame
+BattleMinigame->>: Foe: triggerFoeCombat()
 activate Foe
 %% Dentro del minijuego se resta vida según las siguientes condiciones
 %% Si el jugador contacta con los puños verdes, inflige daño al enemigo y le resta vida
