@@ -29,7 +29,7 @@ Playing --> GameOver : playerDies()
 Playing --> Paused : pause()
 
 %% Pausa: Seleccionar opción "Salir", que lleva de vuelta al Menú principal
-Paused --> Menu: selectOptionQuit()
+Paused --> Menu: selectPauseOptionQuit()
 
 %% Pausa: Seleccionar opción "Reanudar", que devuelve al juego (mapa o combate)
 Paused --> Playing : selectOptionResume()
