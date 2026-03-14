@@ -7,6 +7,41 @@
 
 # DIAGRAMAS DE CASOS DE USO
 
+CASO DE USO - INICIAR PARTIDA
+
+``` mermaid
+
+graph LR
+%% DIAGRAMA DE CASOS DE USO - INICIAR PARTIDA
+
+%% Definir Actores
+Player((Player))
+
+%% Definir límite del Sistema y Acciones
+subgraph "iLERNTALE"
+CU1([Play Game])
+CU2([Select Play In Main Menu])
+CU3([Skip Prologue])
+
+%% Definir relaciones especiales (include y extend)
+
+%% Relación include (obligatoria). Es obligatorio pulsar Play para Iniciar Partida
+CU1 -.->|&lt;&lt;include&gt;&gt;| CU2
+
+%% Relación extend (opcional). Es opcional saltar el prólogo al Iniciar Partida
+CU3 -.->|&lt;&lt;extend&gt;&gt;| CU1
+
+
+
+end
+
+%% Definir relaciones Actor/Casos de Uso
+Player --- CU1
+
+
+```
+
+
 CASO DE USO - ATACAR
 
 ``` mermaid
@@ -49,6 +84,15 @@ Player --- CU1
 Foe --- CU6
 
 ```
+
+
+
+
+
+CASO DE USO - UTILIZAR OBJETO EN COMBATE
+
+
+
 
 
 
