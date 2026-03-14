@@ -3,6 +3,44 @@
 
 # DIAGRAMA DE ESTADOS
 
+``` mermaid
+
+stateDiagram-v2
+%% Diagrama de Estados del juego iLERNTALE
+
+%% Se inicia el juego y va al Menú Principal
+[*] --> Menu
+%%% En el Menú puede elegir varias opciones
+
+%% Playing: Estado jugando - Se cuenta la parte del prólogo
+Menu --> Playing: selectOptionPlay()
+
+%% Quit: Estado de cerrar el juego
+Menu --> Quit: selectOptionQuit()
+
+%% Playing: Estado jugando - Llevará a "Game Beaten" si se pasa el juego 
+Playing --> GameBeaten : beatGame()
+
+%% Playing: Estado jugando - Llevará a "Game Over" si muere 
+
+Playing --> GameOver : playerDies()
+
+%% Playing: Estado jugando - Llevará a Pausa al pulsar Esc (cambio a estado Paused)
+Playing --> Paused : pause()
+
+%% Pausa: Seleccionar opción "Salir", que lleva de vuelta al Menú principal
+Paused --> Menu: selectOptionQuit()
+
+%% Pausa: Seleccionar opción "Reanudar", que devuelve al juego (mapa o combate)
+Paused --> Playing : selectOptionResume()
+
+
+GameBeaten --> [*]
+GameOver --> [*]
+Quit--> [*]
+
+
+```
 
 
 # DIAGRAMAS DE CASOS DE USO
