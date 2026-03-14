@@ -23,7 +23,7 @@ Playing --> GameBeaten : beatGame()
 
 %% Playing: Estado jugando - Llevará a "Game Over" si muere 
 
-Playing --> GameOver : playerDies()
+Playing --> GameOver : die()
 
 %% Playing: Estado jugando - Llevará a Pausa al pulsar Esc (cambio a estado Paused)
 Playing --> Paused : pause()
