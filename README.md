@@ -57,7 +57,7 @@ Player((Player))
 
 %% Definir límite del Sistema y Acciones
 subgraph "iLERNTALE"
-CU1([Play Game])
+CU1([Start Game])
 CU2([Select Play In Main Menu])
 CU3([Select Character])
 CU4([Skip Prologue])
@@ -72,12 +72,10 @@ CU3 -.->|&lt;&lt;include&gt;&gt;| CU2
 
 %% Relación extend (opcional). Es opcional saltar el prólogo al Iniciar Partida
 CU4 -.->|&lt;&lt;extend&gt;&gt;| CU1
-
 end
 
 %% Definir relaciones Actor/Casos de Uso
 Player --- CU1
-
 
 ```
 
