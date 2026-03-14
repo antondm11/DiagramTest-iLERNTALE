@@ -131,9 +131,47 @@ Foe --- CU6
 
 CASO DE USO - UTILIZAR OBJETO EN COMBATE
 
+``` mermaid
+
+graph LR
+%% DIAGRAMA DE CASOS DE USO - USAR OBJETO EN COMBATE
+
+%% Definir Actores
+Player((Player))
+Foe((Foe))
+
+%% Definir límite del Sistema y Acciones
+subgraph "iLERNTALE Combat"
+CU1([Use Battle Item])
+CU2([Select Item Option])
+CU3([Select Item])
+CU4([Engage In Battle])
+CU5([Pick Up Item])
+CU6([Await Player's Decision])
 
 
+%% Definir relaciones especiales (include y extend)
 
+%% Relación include (obligatoria). Hay que seleccionar un objeto para usarlo
+CU1 -.->|&lt;&lt;include&gt;&gt;| CU3
+
+%% Relación include (obligatoria). Para seleccionar un objeto, hay que seleccionar la opción Item
+CU3 -.->|&lt;&lt;include&gt;&gt;| CU2
+
+%% Relación include (obligatoria). Para seleccionar la opción item
+CU2 -.->|&lt;&lt;include&gt;&gt;| CU4
+
+%% Para usar un objeto, es obligatorio haberlo recogido del mapa antes de entrar en combate
+CU4 -.->|&lt;&lt;include&gt;&gt;| CU5
+
+end
+
+%% Definir relaciones Actor/Casos de Uso
+Player --- CU1
+%% Mientras el jugador utiliza un objeto, el enemigo no ataca, espera que tome la decisión de usar objeto, atacar u otra
+Foe --- CU6
+
+```
 
 
 
