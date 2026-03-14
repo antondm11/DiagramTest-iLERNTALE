@@ -21,17 +21,19 @@ Player((Player))
 subgraph "iLERNTALE"
 CU1([Play Game])
 CU2([Select Play In Main Menu])
-CU3([Skip Prologue])
+CU3([Select Character])
+CU4([Skip Prologue])
 
 %% Definir relaciones especiales (include y extend)
 
-%% Relación include (obligatoria). Es obligatorio pulsar Play para Iniciar Partida
-CU1 -.->|&lt;&lt;include&gt;&gt;| CU2
+%% Relación include (obligatoria). Es obligatorio seleccionar Personaje para Iniciar Partida
+CU1 -.->|&lt;&lt;include&gt;&gt;| CU3
+
+%% Relación include (obligatoria). Es obligatorio pulsar Play para Iniciar Partida (y seleccionar personaje)
+CU3 -.->|&lt;&lt;include&gt;&gt;| CU2
 
 %% Relación extend (opcional). Es opcional saltar el prólogo al Iniciar Partida
-CU3 -.->|&lt;&lt;extend&gt;&gt;| CU1
-
-
+CU4 -.->|&lt;&lt;extend&gt;&gt;| CU1
 
 end
 
